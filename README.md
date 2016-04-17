@@ -1,6 +1,6 @@
 # Debian Mipsel on Qemu
 
-Debian (Wheezy) Mipsel running in Qemu.
+Debian (Wheezy) Mipsel running in Qemu. See https://people.debian.org/~aurel32/qemu/mipsel/ for more information.
 
 To start this container:
 
