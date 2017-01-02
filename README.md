@@ -4,9 +4,21 @@ Debian (Wheezy) Mipsel running in Qemu. See https://people.debian.org/~aurel32/q
 
 To start this container:
 
-    docker run -t -i hypnza/qemu_debian_mipsel
+    docker run -ti hypnza/qemu_debian_mipsel
 
-It might appear to hang at the lines below:
+To share a host directory in to the container and in to qemu, start the container with:
+
+    docker run -ti -v `pwd`:/hostshare hypnza/qemu_debian_mipsel
+
+(where `pwd` can be a path of your choosing)
+
+The "/hostshare" directory (inside docker) will then be exposed to qemu. Once logged in to qemu run:
+
+	mkdir /hostshare
+	mount -t 9p -o trans=virtio,version=9p2000.L hostshare /hostshare
+
+
+If might appear to hang at the lines below:
 
     [    0.000000] CPU frequency 200.00 MHz
     [    0.000000] Console: colour dummy device 80x25
